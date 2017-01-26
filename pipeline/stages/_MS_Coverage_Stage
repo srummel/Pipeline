@@ -9,18 +9,22 @@ stage('${STAGE_NAME}') {
   
   try {
     if ("${env.MS_TEST}" == "") {
+	
       def message = "No test location identified in PAC.json"
       echo $ { message }
       trace.output("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", "${message}")
+	  
     } else {
+	
       def coverage = load("_codeCoverage")
       coverage.runCodeCoverage()
-    }
+    
+	}
   } catch (err) {
-	def logs = load '${env.WORKSPACE}/logFile.groovy'
-      logs.copyLogFile('%LOG_FOLDER%', '%SRC_LOG%')
-      logs.copyLogFile('%LOG_FOLDER%', '%GIT_LOG%')
-      throw err
+	def logs = load 'pipeline/logFile.groovy'
+    logs.copyLogFile('%LOG_FOLDER%', '%SRC_LOG%')
+    logs.copyLogFile('%LOG_FOLDER%', '%GIT_LOG%')
+    throw err
   }
   
   trace.endStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", '${STAGE_NAME}')
