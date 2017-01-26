@@ -1,9 +1,11 @@
-stage('Code Coverage') {
+def STAGE_NAME = 'Code Coverage'
+
+stage('${STAGE_NAME}') {
 
   echo 'WORKSPACE = ${env.WORKSPACE}'
 	
-  def trace = load '${env.WORKSPACE}/pipelineTrace.groovy'
-  trace.startStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Code Coverage')
+  def trace = load 'pipeline/pipelineTrace.groovy'
+  trace.startStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", '${STAGE_NAME}')
   
   try {
     if ("${env.MS_TEST}" == "") {
@@ -21,5 +23,5 @@ stage('Code Coverage') {
       throw err
   }
   
-  trace.endStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Code Coverage')
+  trace.endStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", '${STAGE_NAME}')
 }
