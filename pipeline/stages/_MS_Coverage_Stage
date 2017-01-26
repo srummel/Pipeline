@@ -16,7 +16,7 @@ stage('${STAGE_NAME}') {
 	  
     } else {
 	
-      def coverage = load("_codeCoverage")
+      def coverage = load("pipeline/components/_codeCoverage")
       coverage.runCodeCoverage()
     
 	}

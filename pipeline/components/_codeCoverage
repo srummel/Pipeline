@@ -1,0 +1,29 @@
+def runCodeCoverage() {
+    echo "Internal_Method::codeCoverage.runArtifactUpload::Start **"
+
+//    bat '"%powershell%" -ExecutionPolicy ByPass -File "%OC_PS%" -TEST_PATH %ARTIFACT_PATH% -TEST_PATTERN %TEST_PATTERN% -WORKSPACE %WORKSPACE%'
+//    bat '%OPENCOVER% -target:%WORKSPACE%/nunit.bat -targetargs:"%OC_ARGS%" "%OC_FILTER%" -register -targetdir:%ARTIFACT_PATH% -searchdirs:%ARTIFACT_PATH% -output:%WORKSPACE%/OpenCoverTests.xml'
+//    bat '%REPORTGENERATOR% -reports:"%WORKSPACE%/OpenCoverTests.xml" -targetdir:"Reports/opencover"'
+//    bat '%REPORTGENERATOR% -reports:"%WORKSPACE%/OpenCoverTests.xml" -targetdir:"Reports/opencoversummary" -reporttypes:XML'
+//
+//    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'Reports/opencover', reportFiles: 'index.htm', reportName: 'OpenCover Results'])
+//
+//    //Code Coverage logs to move to LogStash folder
+//    bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/checkDirectory.ps1" -DIRECTORY %LOG_FOLDER_CCN%'
+//    bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/checkDirectory.ps1" -DIRECTORY %LOG_FOLDER_CCO%'
+//
+//    bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/checkDirectory.ps1" -DIRECTORY %LOG_FOLDER_CCR_OC%'
+//
+//
+//    bat '"%powershell%" -ExecutionPolicy ByPass -File %copy_logs% -copy_file %SRC_NUNIT% -copy_path %LOG_FOLDER_CCN%'
+//    bat '"%powershell%" -ExecutionPolicy ByPass -File %copy_logs% -copy_file %SRC_OC% -copy_path %LOG_FOLDER_CCO%'
+//    bat '"%powershell%" -ExecutionPolicy ByPass -File %copy_logs% -copy_file %SRC_OC_SUM% -copy_path %LOG_FOLDER_CCO%'
+//
+//    bat '"%powershell%" -ExecutionPolicy ByPass -File %copy_logs% -copy_file %SRC_REPORT_OC% -copy_path %LOG_FOLDER_CCR_OC%'
+
+    echo "Internal_Method::codeCoverage.runCodeCoverage::Finish **"
+
+
+}
+
+return this
