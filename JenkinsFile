@@ -1,9 +1,12 @@
 node('master') {
   checkout scm 
 
+  // Load tracing definition file	
   def trace = load 'pipeline/pipelineTrace.groovy'
   trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 	
+  // Load Appropriate Stages	
+  load 'pipeline/stages/_MS_Build_Stage'
 	
 	
   trace.endStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')	

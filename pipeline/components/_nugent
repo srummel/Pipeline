@@ -1,0 +1,42 @@
+def executeMSBuild(package_type){
+    echo "** nugent.executeMSBuild::Finish **"
+	outputEnvironmentVars(package_type)
+
+        // log Build data
+//		bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/logfile.ps1"% -comment "" -WORKSPACE %WORKSPACE% -buildnumber %build_number% -branchname %branch_name% -git "YES"'
+         
+		// delete Artifact and Package path 
+//        bat '"%powershell%" -ExecutionPolicy ByPass -File %delete_folder% -DIRECTORY %ARTIFACT_PATH%'
+//        bat '"%powershell%" -ExecutionPolicy ByPass -File %delete_folder% -DIRECTORY %PACKAGE_PATH%'
+	
+	
+    	// Check directories if they contain something fail 
+//        bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/checkDirectory.ps1" -DIRECTORY %ARTIFACT_PATH%'
+//        bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/checkDirectory.ps1" -DIRECTORY %PACKAGE_PATH%'
+
+    //Execute Nuget restore command
+//    bat '"%SLAVE_NUGET%" restore "%SOLUTION_PATH%"'
+
+        //Execute MSBUILD
+//        if (package_type.toUpperCase() == "NUGET") {
+//            bat '"%SLAVE_MSBUILD%" "%SOLUTION_PATH%" /p:Configuration=%BUILD_TYPE% /t:Clean,Build /fl /flp:logfile=build.log'
+//        } else {
+//            if ("${env.MS_TEST}" == "") {
+//                bat '"%SLAVE_MSBUILD%" "%SOLUTION_PATH%" /p:Configuration=%BUILD_TYPE%;OutPutPath=%ARTIFACT_PATH% /t:Clean,Build /fl /flp:logfile=build.log'
+//            } else {
+//                bat '"%SLAVE_MSBUILD%" "%SOLUTION_PATH%" /p:Configuration=%BUILD_TYPE%;OutPutPath=%ARTIFACT_PATH% /t:Clean,Build /fl /flp:logfile=build.log'
+//               //bat '"%SLAVE_MSBUILD%" %WORKSPACE%/%MS_TEST% /p:Configuration=%BUILD_TYPE% /t:Clean,Build /fl /flp:logfile=build.log'
+//            }
+//        }
+    echo "** nugent.executeMSBuild::Finish **"
+}
+
+def outputEnvironmentVars(package_type){
+   echo "** nugent.executeMSBuild::Start **"
+	echo "nugent.SLAVE_NUGET = %SLAVE_NUGET%"
+	echo "nugent.SOLUTION_PATH = %SOLUTION_PATH%"
+	echo "nugent.SLAVE_MSBUILD = %SLAVE_MSBUILD%"
+	echo "nugent.BUILD_TYPE = %BUILD_TYPE%"
+	echo "nugent.Package_type = " + package_type
+}
+ return this

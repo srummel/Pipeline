@@ -1,0 +1,21 @@
+stage('Build') {
+
+  def trace = load 'pipeline/pipelineTrace.groovy'
+  trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
+
+  try {
+
+    def nugent = load("pipeline/components/_nugent")
+    nugent.executeMSBuild('${Package_type}')
+
+    def logstash = load("pipeline/components/_logstash")
+    logstash.copyLogFiles()
+  }
+  catch (err) {
+    throw err
+  }
+  finally {
+    trace.endStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
+  }
+}
+

@@ -1,0 +1,20 @@
+ 
+def copyLogFiles(){
+    echo "** logstash.copyLogFiles::Start **"
+
+
+//    bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/checkDirectory.ps1" -DIRECTORY %LOG_FOLDER_BLD%'
+//    bat '"%powershell%" -ExecutionPolicy ByPass -File %copy_logs% -copy_file %SRC_BUILD% -copy_path %LOG_FOLDER_BLD%'
+
+	
+    echo "** logstash.copyLogFiles::Finish **"
+}
+
+def outputEnvironmentVars(){
+   echo "** logstash.executeMSBuild::Start **"
+	echo "logstash.copy_logs = %copy_logs%"
+	echo "logstash.SRC_BUILD = %SRC_BUILD%"
+	echo "logstash.LOG_FOLDER_BLD = %LOG_FOLDER_BLD%"
+}
+
+return this
