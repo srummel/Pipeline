@@ -1,0 +1,6 @@
+node('master') {
+
+  echo "Running Master"
+	
+}
+
