@@ -1,0 +1,9 @@
+def runCodeAnalysis() {
+    echo "Internal_Method::codeAnalysis.runCodeAnalysis::Start **"
+
+//            bat '"%FXCOP_V14%" /f:"%ARTIFACT_PATH%/%FXCOP_FILTER%" /o:"%WORKSPACE%/fxcopout.xml" /ignoreinvalidtargets /verbose /gac'
+
+    echo "Internal_Method::codeAnalysis.runCodeAnalysis::Finish **"
+}
+
+return this

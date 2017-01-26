@@ -1,0 +1,82 @@
+def installArtifact(){
+    echo "Internal_Method::nugent.installArtifact::Start **"
+	outputEnvironmentVars()
+
+//switch ("${Package_type}".toUpperCase()) {
+//   case "NUGET":
+//      echo "PROJECT"
+//      bat '"%NUGET_LATEST%" pack %PROJECT_PATH%'
+//      break
+//
+//   case "ZIP":
+//      env.SOURCE_DIR = "${env.ARTIFACT_PATH}/_PublishedWebsites/SVM.Shared.API.${env.PROJECT_NAME}"
+//      env.DEST_DIR   = "${env.PKG_LOCATION}"
+//      bat '"%powershell%" -ExecutionPolicy ByPass -File "%COMPRESS_PS%" -SOURCE_DIR %SOURCE_DIR% -DEST_DIR %DEST_DIR%'
+//      bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/logfile.ps1"% -comment "Created ZIP package" -WORKSPACE %WORKSPACE% -buildnumber %build_number% -branchname %branch_name%'
+//      break
+//
+//   case "MSI":
+//      if ("${ProjectVersion}".toUpperCase() == "WEBHOOKS") {
+//         env.projectversion = 'Webhooks'
+//         env.wixprojectversion = 'Webhooks'
+//         versionpool_wh             = "${env.APP_VERSION}"+"pool"
+//         env.VERSION_POOL        = "${versionpool_wh}"
+//         env.WIX_VER             = "1.0"
+//
+//      } else {
+//         env.projectversion = "${ProjectVersion}"
+//         env.wixprojectversion = "V${ProjectVersion}"
+//         versionpool_api             = "Version"+"${env.APP_VERSION}"+"pool"
+//         env.VERSION_POOL        = "${versionpool_api}"
+//         env.WIX_VER             = "${VERSION_IN_WIX}"
+//      }
+//
+//      if ("${ProjectGUID}".toUpperCase() == "DEFAULT") {
+//         echo "step1"
+//         echo "ProjectGUID = ${ProjectGUID}"
+//         env.verUUID = ""
+//      } else {
+//         echo "step2"
+//         echo "ProjectGUID = ${ProjectGUID}"
+//         env.verUUID = "${ProjectGUID}"
+//      }
+//
+//      //for TEST
+//      bat '"%powershell%"  -ExecutionPolicy ByPass -File %WIX_PS% -InstallDir  %PROJECT_NAME% -WORKSPACE %WORKSPACE% -ProjVer %wixprojectversion%    -ProjName %PROJECT_NAME%  -versionpool %VERSION_POOL% -verUUID %verUUID% -wixversion %WIX_VER%'
+//      bat '"%WIX_HOME%/heat" dir %ARTIFACT_PATH%/_PublishedWebsites/Test -o MyHarvestfile.wxs -cg MyComponentGroupId -gg -scom -sreg -sfrag -srd -dr level2 -var var.SourceDir'
+//      bat '"%WIX_HOME%/candle" -dSourceDir=%ARTIFACT_PATH%/_PublishedWebsites/Test -dInstallDir=%PROJECT_NAME% -dRootDrive="%WIX_IDRIVE%" -dApplicationVersion="%projectversion%" -dApplicationName="%PROJECT_NAME%" MyHarvestfile.wxs ProjectFileWIX.wxs -ext WixIIsExtension -ext WixUtilextension  -ext WixUIextension'
+//      bat '"%WIX_HOME%/light" MyHarvestfile.wixobj ProjectFileWIX.wixobj -o %PACKAGE_PATH%/%PROJECT_NAME%/Test/%PROJECT_NAME%_test.msi -ext WixIIsExtension -ext WixUtilextension  -ext WixUIextension'
+//      bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/logfile.ps1"% -comment "Created MSI package for Test" -WORKSPACE %WORKSPACE% -buildnumber %build_number% -branchname %branch_name%'
+//
+//      //for DEV
+//      bat '"%powershell%"  -ExecutionPolicy ByPass -File %WIX_PS% -InstallDir  %PROJECT_NAME% -WORKSPACE %WORKSPACE% -ProjVer %wixprojectversion%    -ProjName %PROJECT_NAME% -versionpool %VERSION_POOL% -verUUID %verUUID% -wixversion %WIX_VER%'
+//      bat '"%WIX_HOME%/heat" dir %ARTIFACT_PATH%/_PublishedWebsites/Dev -o MyHarvestfile.wxs -cg MyComponentGroupId -gg -scom -sreg -sfrag -srd -dr level2 -var var.SourceDir'
+//      bat '"%WIX_HOME%/candle" -dSourceDir=%ARTIFACT_PATH%/_PublishedWebsites/Dev -dInstallDir=%PROJECT_NAME% -dRootDrive="%WIX_IDRIVE%" -dApplicationVersion="%projectversion%" -dApplicationName="%PROJECT_NAME%" MyHarvestfile.wxs ProjectFileWIX.wxs -ext WixIIsExtension -ext WixUtilextension  -ext WixUIextension'
+//      bat '"%WIX_HOME%/light" MyHarvestfile.wixobj ProjectFileWIX.wixobj -o %PACKAGE_PATH%/%PROJECT_NAME%/Dev/%PROJECT_NAME%_dev.msi -ext WixIIsExtension -ext WixUtilextension  -ext WixUIextension'
+//      bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/logfile.ps1"% -comment "Created MSI package for Dev" -WORKSPACE %WORKSPACE% -buildnumber %build_number% -branchname %branch_name%'
+//
+//      //for PROD
+//      bat '"%powershell%"  -ExecutionPolicy ByPass -File %WIX_PS% -InstallDir  %PROJECT_NAME% -WORKSPACE %WORKSPACE% -ProjVer %wixprojectversion%    -ProjName %PROJECT_NAME% -versionpool %VERSION_POOL% -verUUID %verUUID% -wixversion %WIX_VER%'
+//      bat '"%WIX_HOME%/heat" dir %ARTIFACT_PATH%/_PublishedWebsites/Prod -o MyHarvestfile.wxs -cg MyComponentGroupId -gg -scom -sreg -sfrag -srd -dr level2 -var var.SourceDir'
+//      bat '"%WIX_HOME%/candle" -dSourceDir=%ARTIFACT_PATH%/_PublishedWebsites/Prod -dInstallDir=%PROJECT_NAME% -dRootDrive="%WIX_IDRIVE%" -dApplicationVersion="%projectversion%" -dApplicationName="%PROJECT_NAME%" MyHarvestfile.wxs ProjectFileWIX.wxs -ext WixIIsExtension -ext WixUtilextension  -ext WixUIextension'
+//      bat '"%WIX_HOME%/light" MyHarvestfile.wixobj ProjectFileWIX.wixobj -o %PACKAGE_PATH%/%PROJECT_NAME%/Prod/%PROJECT_NAME%_prod.msi -ext WixIIsExtension -ext WixUtilextension  -ext WixUIextension'
+//      bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/logfile.ps1"% -comment "Created MSI package for Prod" -WORKSPACE %WORKSPACE% -buildnumber %build_number% -branchname %branch_name%'
+//      break
+//
+//   default:
+//      echo "ERROR: Package type not recognized"
+//      currentBuild.result = 'FAILURE'
+//      break
+//
+
+    echo "Internal_Method::nugent.installArtifact::Finish **"
+}
+
+def outputEnvironmentVars(){
+   echo "** nugent.executeMSBuild::Start **"
+	echo "nugent.SLAVE_NUGET = %SLAVE_NUGET%"
+	echo "nugent.SOLUTION_PATH = %SOLUTION_PATH%"
+	echo "nugent.SLAVE_MSBUILD = %SLAVE_MSBUILD%"
+	echo "nugent.BUILD_TYPE = %BUILD_TYPE%"
+}
+ return this
