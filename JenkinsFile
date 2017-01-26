@@ -1,4 +1,5 @@
 node('master') {
+  checkout scm 
 
   def trace = load 'pipeline/pipelineTrace.groovy'
   trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
