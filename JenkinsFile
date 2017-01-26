@@ -7,7 +7,7 @@ node('master') {
 	
   // Load Appropriate Stages	
   load 'pipeline/stages/_MS_Build_Stage'
-	
+  load 'pipeline/stages/_MS_Coverage_Stage'
 	
   trace.endStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')	
 }
