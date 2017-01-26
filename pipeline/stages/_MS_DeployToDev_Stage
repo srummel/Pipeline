@@ -1,0 +1,17 @@
+stage('Deployment to DEV') {
+  def trace = load 'pipeline/pipelineTrace.groovy'
+  trace.startStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Deployment to DEV')
+
+  try {
+    echo "${env.UUID}"
+//        bat '"%powershell%" -ExecutionPolicy ByPass -File %artifact_promote%  -pac_type %NXS_PKG% -projectname %PROJECT_NAME% -WORKSPACE %WORKSPACE% -region "DEV" -UUID %UUID% -groupid %MVN_NGROUPID_DEV%'
+
+  } catch (err) {
+    def logs = load 'pipeline/logFile.groovy'
+    logs.copyLogFile('%LOG_FOLDER%', '%SRC_LOG%')
+    logs.copyLogFile('%LOG_FOLDER%', '%GIT_LOG%')
+    throw err
+  }
+
+  trace.endStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Deployment to DEV')
+}

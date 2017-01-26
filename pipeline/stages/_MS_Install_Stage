@@ -1,0 +1,23 @@
+stage('Install Package') {
+  def trace = load 'pipeline/pipelineTrace.groovy'
+  trace.startStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Install Package')
+
+  try {
+    echo "${env.UUID}"
+
+    def analysis = load("pipeline/components/_installArtifact")
+    analysis.installArtifact()
+
+
+  } catch (err) {
+//        bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/checkDirectory.ps1" -DIRECTORY %LOG_FOLDER_CA%'
+    def logs = load 'pipeline/logFile.groovy'
+    logs.copyLogFile('%LOG_FOLDER_CA%', '%SRC_FXCOP%')
+    logs.copyLogFile('%LOG_FOLDER%', '%SRC_LOG%')
+    logs.copyLogFile('%LOG_FOLDER%', '%GIT_LOG%')
+    throw err
+  }
+
+  trace.endStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Install Package')
+}
+
