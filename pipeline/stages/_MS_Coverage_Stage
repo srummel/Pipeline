@@ -1,11 +1,9 @@
-def STAGE_NAME = 'Code Coverage'
-
-stage('${STAGE_NAME}') {
+stage('Code Coverage') {
 
   echo 'WORKSPACE = ${env.WORKSPACE}'
 	
   def trace = load 'pipeline/pipelineTrace.groovy'
-  trace.startStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", '${STAGE_NAME}')
+  trace.startStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Code Coverage')
   
   try {
     if ("${env.MS_TEST}" == "") {
@@ -27,5 +25,5 @@ stage('${STAGE_NAME}') {
     throw err
   }
   
-  trace.endStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", '${STAGE_NAME}')
+  trace.endStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Code Coverage')
 }
