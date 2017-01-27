@@ -18,7 +18,7 @@ try {
     echo "** packageType==${packageType} **"
 
 //    checkout scm
-checkout([$class: 'GitSCM', userRemoteConfigs: [  [url: 'git://https://github.com/srummel/Pipeline.git'], extensions: [$class: 'CleanBeforeCheckout']]  ] )
+checkout([$class: 'GitSCM', userRemoteConfigs: [  url: 'git://https://github.com/srummel/Pipeline.git', extensions: [$class: 'CleanBeforeCheckout']]  ] )
 
 
     // Load tracing definition file
