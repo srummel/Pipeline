@@ -15,7 +15,7 @@ try {
     def trace = load 'pipeline/pipelineTrace.groovy'
     trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 
-    echo "** BUILD_NUMBER == ${env.BUILD_NUMBER} **"
+    echo "** BUILD_NUMBER == ${build.number} **"
 
     // Load Appropriate Stages
     load 'pipeline/stages/_MS_Build_Stage'
