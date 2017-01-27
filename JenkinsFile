@@ -40,7 +40,8 @@ try {
 }
 catch (exc) {
     echo "############ CATCH ############"
-    echo "### Error --> ${exc}  ###"
+	
+    echo "### Error --> ${exc.printStackTrace() }  ###"
 	
 } finally {
     echo "############ FINALLY ############"
