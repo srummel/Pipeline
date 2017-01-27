@@ -22,7 +22,7 @@ try {
 
 
     // Load tracing definition file
-//    def trace = load 'pipeline/pipelineTrace.groovy'
+    def trace = load 'pipeline/pipelineTrace.groovy'
 //    trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 
     // Load Appropriate Stages
