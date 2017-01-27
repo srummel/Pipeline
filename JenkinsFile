@@ -31,7 +31,8 @@ try {
 }
 catch (exc) {
     echo "############ CATCH ############"
-
+    echo "### Error --> ${exc}  ###"
+	
 } finally {
     echo "############ FINALLY ############"
 
