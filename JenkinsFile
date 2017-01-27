@@ -5,7 +5,7 @@ node('master') {
   def trace = load 'pipeline/pipelineTrace.groovy'
   trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 	
-    sh 'env | sort'	
+     echo "** BUILD_NUMBER == ${env.BUILD_NUMBER} **"
 	
   // Load Appropriate Stages	
   load 'pipeline/stages/_MS_Build_Stage'
