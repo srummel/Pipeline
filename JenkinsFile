@@ -16,6 +16,9 @@ properties([[$class: 'ParametersDefinitionProperty', parameterDefinitions: [
 [$class: 'BooleanParameterDefinition', name: 'skipDocker', defaultValue: false]
 ]]])
 
+
+    echo "** skipTests==${skipTests} ~~~ skipDocker== ${skipDocker} **"
+
     checkout scm
 
     // Load tracing definition file
