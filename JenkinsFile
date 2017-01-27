@@ -11,13 +11,11 @@ import java.lang.*
 
 try {
   node('master') {
-properties([[$class: 'ParametersDefinitionProperty', parameterDefinitions: [
-[$class: 'BooleanParameterDefinition', name: 'skipTests', defaultValue: false],
-[$class: 'BooleanParameterDefinition', name: 'skipDocker', defaultValue: false]
-]]])
+  
+  def packageType = "Shawns Package"
 
 
-    echo "** skipTests==${skipTests} ~~~ skipDocker== ${skipDocker} **"
+    echo "** packageType==${packageType} **"
 
     checkout scm
 
@@ -27,7 +25,7 @@ properties([[$class: 'ParametersDefinitionProperty', parameterDefinitions: [
 
     // Load Appropriate Stages
     def buid = load 'pipeline/stages/_MS_Build_Stage'
-
+	build.packageType = '${packageType}'
 
 
     load 'pipeline/stages/_MS_Coverage_Stage'

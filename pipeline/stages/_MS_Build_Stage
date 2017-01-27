@@ -1,4 +1,5 @@
 
+def packageType = "DUMMMMY DATA"
 
 stage('Build') {
 
@@ -9,7 +10,7 @@ stage('Build') {
   try {
 
     def nugent = load("pipeline/components/_nugent")
-    nugent.executeMSBuild('${Package_type}')
+    nugent.executeMSBuild('${packageType}')
 
     def logstash = load("pipeline/components/_logstash")
     logstash.copyLogFiles()
