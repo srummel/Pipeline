@@ -15,7 +15,7 @@ try {
     def trace = load 'pipeline/pipelineTrace.groovy'
     trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 
-	def currentBuild = Thread.currentThread().executable
+	def currentBuild = Thread.currentThread.executable
     echo "** BUILD_NUMBER == currentBuild **"
 
     // Load Appropriate Stages
