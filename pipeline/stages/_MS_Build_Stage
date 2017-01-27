@@ -1,4 +1,5 @@
 
+try{
 
 stage('Build') {
 def packageType = "DUMMMMY DATA"
@@ -6,7 +7,7 @@ def packageType = "DUMMMMY DATA"
   def trace = load 'pipeline/pipelineTrace.groovy'
   trace.startStage(${env.WORKSPACE}, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
   
-  echo "** packageType==${packageType} **"
+  echo "** packageType==build **" 
   
   try {
 
@@ -24,3 +25,5 @@ def packageType = "DUMMMMY DATA"
   }
 }
 
+}catch(exc){
+}
