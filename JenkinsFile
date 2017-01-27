@@ -1,18 +1,18 @@
-#!/usr/bin/env groovy
-
-import hudson.model.*
-import hudson.EnvVars
-import groovy.json.JsonSlurperClassic
-import groovy.json.JsonBuilder
-import groovy.json.JsonOutput
-import java.net.URL
-import java.lang.*
-
-
-try {
+//#!/usr/bin/env groovy
+//
+//import hudson.model.*
+//import hudson.EnvVars
+//import groovy.json.JsonSlurperClassic
+//import groovy.json.JsonBuilder
+//import groovy.json.JsonOutput
+//import java.net.URL
+//import java.lang.*
+//
+//
+//try {
   node('master') {
     checkout scm
-  
+
     def packageType = "Shawns Package"
 
 
@@ -39,16 +39,16 @@ try {
 
 //    trace.endStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
   }
-}
-catch (exc) {
-    echo "############ CATCH ############"
-	
-    echo "### Error --> ${exc}  ###"
-	
-} finally {
-    echo "############ FINALLY ############"
-
-}
+//}
+//catch (exc) {
+//  echo "############ CATCH ############"
+//
+//  echo "### Error --> ${exc}  ###"
+//
+//} finally {
+//  echo "############ FINALLY ############"
+//
+//}
 
 // Must re-throw exception to propagate error:
 /*
