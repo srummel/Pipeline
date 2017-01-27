@@ -22,8 +22,8 @@ try {
 
 
     // Load tracing definition file
-    def trace = load 'pipeline/pipelineTrace.groovy'
-    trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
+//    def trace = load 'pipeline/pipelineTrace.groovy'
+//    trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 
     // Load Appropriate Stages
 //    def buid = load 'pipeline/stages/_MS_Build_Stage'
