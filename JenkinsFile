@@ -1,15 +1,15 @@
 //#!/usr/bin/env groovy
 //
-//import hudson.model.*
-//import hudson.EnvVars
-//import groovy.json.JsonSlurperClassic
-//import groovy.json.JsonBuilder
-//import groovy.json.JsonOutput
-//import java.net.URL
-//import java.lang.*
-//
-//
-//try {
+import hudson.model.*
+import hudson.EnvVars
+import groovy.json.JsonSlurperClassic
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+import java.net.URL
+import java.lang.*
+
+
+try {
   node('master') {
     checkout scm
 
@@ -20,7 +20,6 @@
 
 // checkout([$class: 'GitSCM', userRemoteConfigs: [  url: 'git://https://github.com/srummel/Pipeline.git', extensions: [$class: 'CleanBeforeCheckout']]  ] )
 
-
     // Load tracing definition file
     def trace = load 'pipeline/pipelineTrace.groovy'
     trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
@@ -30,7 +29,6 @@
 //	build.packageType = '${packageType}'
 //   echo "** BUILD LOADED **"
 
-
 //    load 'pipeline/stages/_MS_Coverage_Stage'
 //    load 'pipeline/stages/_MS_Install_Stage'
 //    load 'pipeline/stages/_MS_ArtifactUpload_Stage'
@@ -39,16 +37,16 @@
 
 //    trace.endStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
   }
-//}
-//catch (exc) {
-//  echo "############ CATCH ############"
-//
-//  echo "### Error --> ${exc}  ###"
-//
-//} finally {
-//  echo "############ FINALLY ############"
-//
-//}
+}
+catch (exc) {
+  echo "############ CATCH ############"
+
+  echo "### Error --> ${exc}  ###"
+
+} finally {
+  echo "############ FINALLY ############"
+
+}
 
 // Must re-throw exception to propagate error:
 /*
