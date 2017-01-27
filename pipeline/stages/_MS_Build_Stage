@@ -4,7 +4,7 @@ def packageType = "DUMMMMY DATA"
 stage('Build') {
 
   def trace = load 'pipeline/pipelineTrace.groovy'
-  trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
+  trace.startStage(${env.WORKSPACE}, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
   
 
   try {
@@ -19,7 +19,7 @@ stage('Build') {
     throw err
   }
   finally {
-    trace.endStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
+    trace.endStage(${env.WORKSPACE}, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
   }
 }
 

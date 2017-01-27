@@ -26,13 +26,14 @@ try {
     // Load Appropriate Stages
     def buid = load 'pipeline/stages/_MS_Build_Stage'
 	build.packageType = '${packageType}'
+   echo "** BUILD LOADED **"
 
 
-    load 'pipeline/stages/_MS_Coverage_Stage'
-    load 'pipeline/stages/_MS_Install_Stage'
-    load 'pipeline/stages/_MS_ArtifactUpload_Stage'
-    load 'pipeline/stages/_MS_DeployToDev_Stage'
-    load 'pipeline/stages/_MS_DeployToTest_Stage'
+//    load 'pipeline/stages/_MS_Coverage_Stage'
+//    load 'pipeline/stages/_MS_Install_Stage'
+//    load 'pipeline/stages/_MS_ArtifactUpload_Stage'
+//    load 'pipeline/stages/_MS_DeployToDev_Stage'
+//    load 'pipeline/stages/_MS_DeployToTest_Stage'
 
     trace.endStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
   }
