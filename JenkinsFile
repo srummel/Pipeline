@@ -11,15 +11,13 @@ import java.lang.*
 
 try {
   node('master') {
-//    checkout scm
-  checkout([
-        $class: 'GitSCM',
-        branches: scm.branches,
-        extensions: scm.extensions + [[$class: 'CleanCheckout']],
-        userRemoteConfigs: scm.userRemoteConfigs
-  ])
-	
-	
+properties([[$class: 'ParametersDefinitionProperty', parameterDefinitions: [
+[$class: 'BooleanParameterDefinition', name: 'skipTests', defaultValue: false],
+[$class: 'BooleanParameterDefinition', name: 'skipDocker', defaultValue: false]
+]]])
+
+    checkout scm
+
     // Load tracing definition file
     def trace = load 'pipeline/pipelineTrace.groovy'
     trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
