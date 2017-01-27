@@ -11,10 +11,6 @@ import java.lang.*
 
 try {
   node('master') {
-properties([[$class: 'ParametersDefinitionProperty', parameterDefinitions: [
-[$class: 'BooleanParameterDefinition', name: 'skipTests', defaultValue: false],
-[$class: 'BooleanParameterDefinition', name: 'skipDocker', defaultValue: false]
-]]])
 
     checkout scm
 
