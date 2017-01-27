@@ -3,10 +3,8 @@ stage('Build') {
   def trace = load 'pipeline/pipelineTrace.groovy'
   trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
   
-    echo "** PRE BUILD_NUMBER **"
- println build.getClass() 
-    echo "** POST BUILD_NUMBER **"
-  
+    echo "&&&&   PRE BUILD_NUMBER ${env.BUILD_NUMBER}**"
+
   try {
 
     def nugent = load("pipeline/components/_nugent")
