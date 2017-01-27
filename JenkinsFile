@@ -17,7 +17,9 @@ try {
 
     echo "** packageType==${packageType} **"
 
-    checkout scm
+//    checkout scm
+checkout([$class: 'GitSCM', userRemoteConfigs: [[url: 'git://https://github.com/srummel/Pipeline.git'], extensions: [[$class: 'CleanBeforeCheckout']]])
+
 
     // Load tracing definition file
     def trace = load 'pipeline/pipelineTrace.groovy'
