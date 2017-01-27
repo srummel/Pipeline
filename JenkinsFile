@@ -27,6 +27,7 @@ try {
 
     trace.endStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
   }
+}  
   catch (exc) {
 /*
  err = caughtError
