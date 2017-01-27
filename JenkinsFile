@@ -26,9 +26,9 @@ checkout([$class: 'GitSCM', userRemoteConfigs: [[url: 'git://https://github.com/
     trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 
     // Load Appropriate Stages
-    def buid = load 'pipeline/stages/_MS_Build_Stage'
-	build.packageType = '${packageType}'
-   echo "** BUILD LOADED **"
+//    def buid = load 'pipeline/stages/_MS_Build_Stage'
+//	build.packageType = '${packageType}'
+//   echo "** BUILD LOADED **"
 
 
 //    load 'pipeline/stages/_MS_Coverage_Stage'
