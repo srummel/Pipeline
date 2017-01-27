@@ -2,7 +2,10 @@ stage('Build') {
 
   def trace = load 'pipeline/pipelineTrace.groovy'
   trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
+ 
+    echo "** BUILD_NUMBER == ${build.number} **"
 
+ 
   try {
 
     def nugent = load("pipeline/components/_nugent")
