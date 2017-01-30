@@ -2,7 +2,7 @@ package com
 
 
 @Library('pacLog')
-class pipelineTrace{ 
+public class pipelineTrace implements Serializable{ 
 def location
 def startStage(buildNumber, buildEnvironment, stage){
     println "###### pipelineTrace.startStage::" + stage + "~~location=${location}::Start ######"
