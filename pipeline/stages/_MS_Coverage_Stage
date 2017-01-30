@@ -1,11 +1,11 @@
-def STAGE_NAME = 'Code Coverage'
+
 def packageType
 def trace
 
 
 def execute() {
-  stage(STAGE_NAME) {
-    trace.startStage(STAGE_NAME)
+  stage('Code Coverage') {
+    trace.startStage('Code Coverage')
 
     try {
       if ("${env.MS_TEST}" == "") {
@@ -27,6 +27,6 @@ def execute() {
       throw err
     }
 
-    trace.endStage(STAGE_NAME)
+    trace.endStage('Code Coverage')
   }
 }
