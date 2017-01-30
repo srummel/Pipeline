@@ -1,7 +1,8 @@
 
-def location
 
-{ -> location
+
+class pipelineTrace{ 
+def location
 def startStage(buildNumber, buildEnvironment, stage){
     echo "###### pipelineTrace.startStage::" + stage + "~~location=${location}::Start ######"
 
@@ -42,4 +43,4 @@ def logError(text){
     echo "** pipelineTrace.logError::" + stage + "::Finish **"
 }
 }
-return this;
+// return this;

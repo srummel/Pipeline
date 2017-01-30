@@ -7,10 +7,11 @@ node('master') {
 
     // Load tracing definition file
     def trace = load 'pipeline/pipelineTrace.groovy'
-    trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
+	trace.location = WORKSPACE
+    trace.startStage( "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 
     // Load Appropriate Stages
-    def build = load 'pipeline/stages/_MS_Build_Stage'
+//    def build = load 'pipeline/stages/_MS_Build_Stage'
 	
 	build.packageType = packageType
 	
@@ -18,7 +19,7 @@ node('master') {
 	
 	
    echo "** PRE - BUILD Executed **"
-	build.execute()
+//	build.execute()
    echo "** BUILD Executed **"
 
 //    load 'pipeline/stages/_MS_Coverage_Stage'
