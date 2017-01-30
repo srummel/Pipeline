@@ -2,24 +2,26 @@
 
 
 def location
+def buildNumber 
+def gitBranch
+File pacLog = new File(location + "/PAC.log")
 
-def startStage(buildNumber, buildEnvironment, stage){
-    println "###### pipelineTrace.startStage::" + stage + "~~location=${location}::Start ######"
-
-	File f = new File(location + "/PAC.log")
-	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
-    f.append([timeStamp, buildNumber, buildEnvironment].join("; ") + " ::Begin " + stage + '\r\n')
 	
-    println "** pipelineTrace.startStage::" + stage + "::Finish **"
+def startStage(stage){
+    println "###### pipelineTrace.startStage::" + stage + "~~location=${location}~~v=${buildNumber}~~gitBranch= ${gitBranch}::Start ######"
+
+	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
+    pacLog.append([timeStamp, buildNumber, buildEnvironment].join("; ") + " ::Begin " + stage + '\r\n')
+	
+    println "###### pipelineTrace.startStage::" + stage + "~~location=${location}~~v=${buildNumber}~~gitBranch= ${gitBranch}::Finish ######"
 }
 
 
-def endStage(location, buildNumber, buildEnvironment, stage){
+def endStage(stage){
     println "** pipelineTrace.endStage::" + stage + "::Start **"
 
-	File f = new File(location + "/PAC.log")
 	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
-    f.append([timeStamp, buildNumber, buildEnvironment].join("; ") + " ::Complete " + stage + '\r\n')
+    pacLog.append([timeStamp, buildNumber, buildEnvironment].join("; ") + " ::Complete " + stage + '\r\n')
 	
     println "** pipelineTrace.endStage::" + stage + "::Finish **"
 }
@@ -27,8 +29,7 @@ def endStage(location, buildNumber, buildEnvironment, stage){
 def output(text){
     println "** pipelineTrace.endStage::" + stage + "::Start **"
 
-	File f = new File(location + "/PAC.log")
-    f.append(text + '\r\n')
+    pacLog.append(text + '\r\n')
 	
     println "** pipelineTrace.endStage::" + stage + "::Finish **"
 }
@@ -36,9 +37,8 @@ def output(text){
 def logError(text){
     println "** pipelineTrace.logError::" + stage + "::Start **"
 
-	File f = new File(location + "/PAC.log")
 	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
-    f.append([timeStamp, buildNumber, buildEnvironment].join("; ") + " ::End " + stage + '\r\n')
+    pacLog.append([timeStamp, buildNumber, buildEnvironment].join("; ") + " ::End " + stage + '\r\n')
 	
     println "** pipelineTrace.logError::" + stage + "::Finish **"
 }
