@@ -1,7 +1,7 @@
 def packageType
 
-//def execute() 
-//{
+def execute() 
+{
  
 stage('Build') {
 
@@ -27,7 +27,7 @@ stage('Build') {
 // }
 }
 
-//}
+}
 return this
 
 

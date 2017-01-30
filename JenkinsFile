@@ -19,9 +19,9 @@
     echo "######### build.packageType==" + build.packageType + " ###############"
 	
 	
-//   echo "** PRE - BUILD Executed **"
-//	build.execute()
-//   echo "** BUILD Executed **"
+   echo "** PRE - BUILD Executed **"
+	build.execute()
+   echo "** BUILD Executed **"
 
 //    load 'pipeline/stages/_MS_Coverage_Stage'
 //    load 'pipeline/stages/_MS_Install_Stage'
