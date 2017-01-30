@@ -4,12 +4,13 @@
 def location
 def buildNumber 
 def gitBranch
-def pacLog = new File(${location} + "/PAC.log")
+def pacLog
 
 	
 def startStage(stage){
     println "###### pipelineTrace.startStage::Start ######"
-//pacLog = new File(location + "/PAC.log")
+
+	pacLog = new File(location + "/PAC.log")
 	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
     pacLog.append([timeStamp, buildNumber, gitBranch].join("; ") + " ::Begin " + stage + '\r\n')
 	
@@ -19,8 +20,8 @@ def startStage(stage){
 
 def endStage(stage){
     println "** pipelineTrace.endStage::" + stage + "::Start **"
-pacLog = new File(location + "/PAC.log")
-//File pacLog = new File(location + "/PAC.log")
+
+	pacLog = new File(location + "/PAC.log")
 	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
     pacLog.append([timeStamp, buildNumber, gitBranch].join("; ") + " ::Complete " + stage + '\r\n')
 	
@@ -30,7 +31,7 @@ pacLog = new File(location + "/PAC.log")
 def output(text){
     println "** pipelineTrace.endStage::" + stage + "::Start **"
 
-File pacLog = new File(location + "/PAC.log")
+	pacLog = new File(location + "/PAC.log")
     pacLog.append(text + '\r\n')
 	
     println "###### pipelineTrace.startStage::Complete ######"
@@ -39,7 +40,7 @@ File pacLog = new File(location + "/PAC.log")
 def logError(text){
     println "** pipelineTrace.logError::" + stage + "::Start **"
 
-File pacLog = new File(location + "/PAC.log")
+	pacLog = new File(location + "/PAC.log")
 	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
     pacLog.append([timeStamp, buildNumber, gitBranch].join("; ") + " ::End " + stage + '\r\n')
 	
