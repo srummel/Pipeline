@@ -1,4 +1,4 @@
-@Library('pacLog') import pipelineTrace.groovy
+@Library('pacLog') import com.pipelineTrace
 
 node('master') {
     checkout scm
