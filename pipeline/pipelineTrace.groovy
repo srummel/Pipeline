@@ -1,7 +1,7 @@
 
 def location
 
-{
+{ ->
 def startStage(buildNumber, buildEnvironment, stage){
     echo "###### pipelineTrace.startStage::" + stage + "~~location=${location}::Start ######"
 
