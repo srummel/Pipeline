@@ -1,7 +1,8 @@
+  def packageType
+
 def execute() 
 {
-   def packageType
-
+ 
 stage('Build') {
 
   def trace = load 'pipeline/pipelineTrace.groovy'
