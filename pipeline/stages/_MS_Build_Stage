@@ -19,7 +19,7 @@ def execute()
       throw err
     }
     finally {
-      trace.endStage(${env.WORKSPACE}, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
+      trace.endStage(WORKSPACE,        "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
     }
   }
 }

@@ -1,6 +1,6 @@
 
 def startStage(location, buildNumber, buildEnvironment, stage){
-    echo "** pipelineTrace.startStage::" + stage + "::Start **"
+    echo "###### pipelineTrace.startStage::" + stage + "~~location=${location}::Start ######"
 
 	File f = new File(location + "/PAC.log")
 	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
