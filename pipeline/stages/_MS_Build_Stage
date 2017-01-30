@@ -8,7 +8,7 @@ def trace
 //    def trace = load 'pipeline/pipelineTrace.groovy'
 //	trace.location = WORKSPACE
 //    trace.startStage("${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
-	 trace.startStage('BUILD')
+//	 trace.startStage('BUILD')
 
 	 try {
 
@@ -22,7 +22,7 @@ def trace
       throw err
     }
     finally {
-      trace.endStage(WORKSPACE,        "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
+//      trace.endStage(WORKSPACE,        "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
     }
   }
 }
