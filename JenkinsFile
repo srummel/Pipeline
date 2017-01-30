@@ -7,11 +7,11 @@
     echo "######### packageType==" + packageType + " ###############"
 
     // Load tracing definition file
-    def trace = load 'pipeline/pipelineTrace.groovy'
-    trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
+//    def trace = load 'pipeline/pipelineTrace.groovy'
+//    trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 
     // Load Appropriate Stages
-    def buid = load 'pipeline/stages/_MS_Build_Stage'
+//    def buid = load 'pipeline/stages/_MS_Build_Stage'
 //	build.packageType = '${packageType}'
 //   echo "** BUILD LOADED **"
 
