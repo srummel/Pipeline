@@ -8,7 +8,7 @@ stage('Build') {
   trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
 	
   
-    echo "######### packageType==" + packageType + " ###############"
+    echo "######### packageType==" + ${packageType} + " ###############"
   
 //  try {
 
