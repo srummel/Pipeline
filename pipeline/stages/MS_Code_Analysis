@@ -1,0 +1,33 @@
+def packageType
+def trace 
+
+def execute() 
+{
+  stage ("Code Analysis") {
+//    try {
+//        echo "${env.UUID}"
+//        bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/logfile.ps1"% -comment "Begin Code Analysis" -WORKSPACE %WORKSPACE% -buildnumber %build_number% -branchname %branch_name%'
+//        if ("${env.MS_TEST}" == "") {
+//            echo "No test location identified in PAC.json"
+//            bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/logfile.ps1"% -comment "No test location identified in PAC.json" -WORKSPACE %WORKSPACE% -buildnumber %build_number% -branchname %branch_name%'
+//       } else {
+//            bat '"%FXCOP_V14%" /f:"%ARTIFACT_PATH%/%FXCOP_FILTER%" /o:"%WORKSPACE%/fxcopout.xml" /ignoreinvalidtargets /verbose /gac'
+            //Code Analysis logs to move to LogStash folder
+//            bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/checkDirectory.ps1" -DIRECTORY %LOG_FOLDER_CA%'
+//            bat '"%powershell%" -ExecutionPolicy ByPass -File %copy_logs% -copy_file %SRC_FXCOP% -copy_path %LOG_FOLDER_CA%'
+//        }
+//    } catch (err) {
+//        bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/logfile.ps1"% -comment "End Code Analysis; Failure" -WORKSPACE %WORKSPACE% -buildnumber %build_number% -branchname %branch_name%'
+//		bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/logfile.ps1"% -comment "End Pipeline; Failure" -WORKSPACE %WORKSPACE% -buildnumber %build_number% -branchname %branch_name%'
+//        bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/checkDirectory.ps1" -DIRECTORY %LOG_FOLDER_CA%'
+//        bat '"%powershell%" -ExecutionPolicy ByPass -File %copy_logs% -copy_file %SRC_FXCOP% -copy_path %LOG_FOLDER_CA%'
+//        bat '"%powershell%" -ExecutionPolicy ByPass -File %copy_logs% -copy_file %SRC_LOG% -copy_path %LOG_FOLDER%'
+//		bat '"%powershell%" -ExecutionPolicy ByPass -File %copy_logs% -copy_file %GIT_LOG% -copy_path %LOG_FOLDER%'
+//        throw err
+//    }
+//    bat '"%powershell%" -ExecutionPolicy ByPass -File "${env.WORKSPACE}/scripts/logfile.ps1"% -comment "End Code Analysis; Success" -WORKSPACE %WORKSPACE% -buildnumber %build_number% -branchname %branch_name%'
+  }
+}
+return this
+
+

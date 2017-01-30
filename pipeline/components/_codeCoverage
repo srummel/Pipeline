@@ -1,5 +1,7 @@
+
+
 def runCodeCoverage() {
-    echo "Internal_Method::codeCoverage.runArtifactUpload::Start **"
+    echo "Component::codeCoverage.runCodeCoverage::Start **"
 
 //    bat '"%powershell%" -ExecutionPolicy ByPass -File "%OC_PS%" -TEST_PATH %ARTIFACT_PATH% -TEST_PATTERN %TEST_PATTERN% -WORKSPACE %WORKSPACE%'
 //    bat '%OPENCOVER% -target:%WORKSPACE%/nunit.bat -targetargs:"%OC_ARGS%" "%OC_FILTER%" -register -targetdir:%ARTIFACT_PATH% -searchdirs:%ARTIFACT_PATH% -output:%WORKSPACE%/OpenCoverTests.xml'
@@ -21,7 +23,7 @@ def runCodeCoverage() {
 //
 //    bat '"%powershell%" -ExecutionPolicy ByPass -File %copy_logs% -copy_file %SRC_REPORT_OC% -copy_path %LOG_FOLDER_CCR_OC%'
 
-    echo "Internal_Method::codeCoverage.runCodeCoverage::Finish **"
+    echo "Component::codeCoverage.runCodeCoverage::Finish **"
 }
 
 return this

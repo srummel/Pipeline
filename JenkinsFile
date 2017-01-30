@@ -24,7 +24,10 @@ node('master') {
 	coverage.trace = trace
 	coverage.execute()
 	
-//    load 'pipeline/stages/_MS_Install_Stage'
+    def analysis = load 'pipeline/stages/_MS_Code_Analysis'
+	analysis.trace = trace
+	analysis.execute()
+	
 //    load 'pipeline/stages/_MS_ArtifactUpload_Stage'
 //    load 'pipeline/stages/_MS_DeployToDev_Stage'
 //    load 'pipeline/stages/_MS_DeployToTest_Stage'
