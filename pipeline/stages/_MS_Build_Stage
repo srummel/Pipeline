@@ -1,24 +1,23 @@
-
 stage('Build') {
-def packageType = "DUMMMMY DATA"
+ def packageType = "DUMMMMY DATA"
 
   def trace = load 'pipeline/pipelineTrace.groovy'
   trace.startStage(${env.WORKSPACE}, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
   
-  echo "** packageType==build **" 
+//  echo "** packageType==build **" 
   
-  try {
+//  try {
 
-    def nugent = load("pipeline/components/_nugent")
-    nugent.executeMSBuild('${packageType}')
+//    def nugent = load("pipeline/components/_nugent")
+//    nugent.executeMSBuild('${packageType}')
 
-    def logstash = load("pipeline/components/_logstash")
-    logstash.copyLogFiles()
-  }
-  catch (err) {
-    throw err
-  }
-  finally {
-    trace.endStage(${env.WORKSPACE}, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
-  }
+//    def logstash = load("pipeline/components/_logstash")
+//    logstash.copyLogFiles()
+//  }
+//  catch (err) {
+//    throw err
+//  }
+//  finally {
+//    trace.endStage(${env.WORKSPACE}, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
+// }
 }
