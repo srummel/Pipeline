@@ -13,9 +13,15 @@
 
     // Load Appropriate Stages
     def build = load 'pipeline/stages/_MS_Build_Stage'
+	
 	build.packageType = packageType
+	
+    echo "######### build.packageType==" + build.packageType + " ###############"
+	
+	
+   echo "** PRE - BUILD Executed **"
 	build.execute()
-//   echo "** BUILD LOADED **"
+   echo "** BUILD Executed **"
 
 //    load 'pipeline/stages/_MS_Coverage_Stage'
 //    load 'pipeline/stages/_MS_Install_Stage'
