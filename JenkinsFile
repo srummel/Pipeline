@@ -1,10 +1,9 @@
-    def packageType = "Shawns Package"
 
 
   node('master') {
     checkout scm
 
-//	properties([packageType
+    def packageType = "Shawns Package"
 
     echo "######### packageType==" + packageType + " ###############"
 
@@ -13,7 +12,7 @@
     trace.startStage(WORKSPACE, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 
     // Load Appropriate Stages
-    def buid = load 'pipeline/stages/_MS_Build_Stage'
+    def build = load 'pipeline/stages/_MS_Build_Stage'
 	build.packageType = packageType
 //	build.packageType = '${packageType}'
 //   echo "** BUILD LOADED **"
