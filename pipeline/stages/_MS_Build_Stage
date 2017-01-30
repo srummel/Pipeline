@@ -1,3 +1,6 @@
+def execute() 
+{
+
 stage('Build') {
 	def packageType = ""
 
@@ -23,3 +26,5 @@ stage('Build') {
 // }
 }
 return this
+
+}
