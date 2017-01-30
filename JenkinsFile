@@ -1,4 +1,3 @@
-import pipelineTrace.groovy
 
 node('master') {
     checkout scm
@@ -8,8 +7,8 @@ node('master') {
     echo "######### packageType==" + packageType + " ###############"
 
     // Load tracing definition file
-//    def trace = load 'pipeline/pipelineTrace.groovy'
-	def trace = new pipelineTrace()
+    def trace = load 'pipeline/pipelineTrace.groovy'
+//	def trace = new pipelineTrace()
 	trace.location = WORKSPACE
     trace.startStage( "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 
