@@ -1,5 +1,7 @@
+
+
 def executeMSBuild(package_type){
-    echo "** nugent.executeMSBuild::Finish **"
+    echo "###### nugent.executeMSBuild::Start ######"
 	outputEnvironmentVars(package_type)
 
         // log Build data
@@ -28,7 +30,7 @@ def executeMSBuild(package_type){
 //               //bat '"%SLAVE_MSBUILD%" %WORKSPACE%/%MS_TEST% /p:Configuration=%BUILD_TYPE% /t:Clean,Build /fl /flp:logfile=build.log'
 //            }
 //        }
-    echo "** nugent.executeMSBuild::Finish **"
+    echo "###### nugent.executeMSBuild::Finish ######"
 }
 
 def outputEnvironmentVars(package_type){
