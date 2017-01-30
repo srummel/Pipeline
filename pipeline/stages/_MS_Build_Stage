@@ -1,6 +1,6 @@
 def execute() 
 {
-	def packageType = ""
+   def packageType = "Build Stage"
 
 stage('Build') {
 
@@ -25,6 +25,6 @@ stage('Build') {
 //    trace.endStage(${env.WORKSPACE}, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
 // }
 }
-return this
 
 }
+return this
