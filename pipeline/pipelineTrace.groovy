@@ -4,12 +4,12 @@
 def location
 def buildNumber 
 def gitBranch
-def pacLog 
+def pacLog = new File(${location} + "/PAC.log")
 
 	
 def startStage(stage){
     println "###### pipelineTrace.startStage::Start ######"
-pacLog = new File(location + "/PAC.log")
+//pacLog = new File(location + "/PAC.log")
 	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
     pacLog.append([timeStamp, buildNumber, gitBranch].join("; ") + " ::Begin " + stage + '\r\n')
 	
