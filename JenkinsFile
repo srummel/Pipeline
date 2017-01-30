@@ -17,7 +17,7 @@ try {
     trace.startStage('Pipeline')
 
     // Load Appropriate Stages
-    executeBuild(packageType)
+    executeBuild(trace, packageType)
 
     def coverage = load 'pipeline/stages/_MS_Coverage_Stage'
     coverage.trace = trace
@@ -46,7 +46,7 @@ catch (exc) {
   echo "Caught: ${exc}"
 }
 
-def executeBuild(packageType) {
+def executeBuild(trace, packageType) {
   def build = load 'pipeline/stages/_MS_Build_Stage'
   build.packageType = packageType
   build.trace = trace
