@@ -1,6 +1,6 @@
 def execute() 
 {
-   def packageType = "Build Stage"
+   def packageType
 
 stage('Build') {
 
