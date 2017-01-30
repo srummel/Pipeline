@@ -18,4 +18,6 @@ def execute()
     }
 
     trace.endStage('Deployment to DEV')
+  }
 }
+return this  
