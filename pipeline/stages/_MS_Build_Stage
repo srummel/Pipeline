@@ -1,11 +1,11 @@
 def packageType
 def trace 
-def STAGE_NAME = "BUILD"
+
 
 def execute() 
 {
-  stage(STAGE_NAME) {
-	 trace.startStage(STAGE_NAME)
+  stage('Build') {
+	 trace.startStage('BUILD')
 
 	 try {
 
@@ -19,7 +19,7 @@ def execute()
       throw err
     }
     finally {
-      trace.endStage(STAGE_NAME)
+      trace.endStage('BUILD')
     }
   }
 }
