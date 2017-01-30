@@ -18,7 +18,10 @@ try {
     trace.startStage('Pipeline')
 
     // Execute Appropriate Stages
-    executeBuild(trace, packageType)
+  def build = load STAGES_DIR + "_MS_Build_Stage"
+  build.packageType = packageType
+  build.trace = trace
+  build.execute()
     executeCoverage(trace)
     executeUpload(trace)
     executeCodeAnalysis(trace)
@@ -33,10 +36,6 @@ catch (exc) {
 }
 
 def executeBuild(trace, packageType) {
-  def build = load STAGES_DIR + "_MS_Build_Stage"
-  build.packageType = packageType
-  build.trace = trace
-  build.execute()
 }
 
 def executeCoverage(trace) {
