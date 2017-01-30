@@ -26,5 +26,5 @@ stage('Build') {
 // }
 }
 
-}
+}()
 return this
