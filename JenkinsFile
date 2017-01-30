@@ -1,6 +1,7 @@
 #!/usr/bin/env groovy
 
 def packageType = "Source Package"
+def STAGES_DIR = "pipeline/stages/"
 def trace
 
 try {
@@ -18,26 +19,11 @@ try {
 
     // Load Appropriate Stages
     executeBuild(trace, packageType)
-
-    def coverage = load 'pipeline/stages/_MS_Coverage_Stage'
-    coverage.trace = trace
-    coverage.execute()
-
-    def analysis = load 'pipeline/stages/_MS_Code_Analysis'
-    analysis.trace = trace
-    analysis.execute()
-
-    def upload = load 'pipeline/stages/_MS_ArtifactUpload_Stage'
-    upload.trace = trace
-    upload.execute()
-
-    def deployToDev = load 'pipeline/stages/_MS_DeployToDev_Stage'
-    deployToDev.trace = trace
-    deployToDev.execute()
-
-    def deployToTest = load 'pipeline/stages/_MS_DeployToTest_Stage'
-    deployToTest.trace = trace
-    deployToTest.execute()
+    executeCoverage(trace)
+    executeUpload(trace)
+    executeCodeAnalysis(trace)
+    executeDeployToDev(trace)
+    executeDeployToTest(trace)
 
     trace.endStage('Pipeline')
   }
@@ -47,8 +33,38 @@ catch (exc) {
 }
 
 def executeBuild(trace, packageType) {
-  def build = load 'pipeline/stages/_MS_Build_Stage'
+  def build = load STAGES_DIR + "_MS_Build_Stage'
   build.packageType = packageType
   build.trace = trace
   build.execute()
+}
+
+def executeCoverage(trace) {
+    def coverage = load STAGES_DIR + "_MS_Coverage_Stage'
+    coverage.trace = trace
+    coverage.execute()
+}
+
+def executeUpload(trace) {
+    def upload = load STAGES_DIR + "_MS_ArtifactUpload_Stage'
+    upload.trace = trace
+    upload.execute()
+}
+
+def executeCodeAnalysis(trace) {
+    def analysis = load STAGES_DIR + "_MS_Code_Analysis'
+    analysis.trace = trace
+    analysis.execute()
+}
+
+def executeDeployToDev(trace) {
+    def deployToDev = load STAGES_DIR + "_MS_DeployToDev_Stage'
+    deployToDev.trace = trace
+    deployToDev.execute()
+}
+
+def executeDeployToTest(trace) {
+    def deployToTest = load STAGES_DIR + "_MS_DeployToTest_Stage'
+    deployToTest.trace = trace
+    deployToTest.execute()
 }
