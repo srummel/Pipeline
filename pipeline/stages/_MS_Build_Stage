@@ -22,3 +22,4 @@ stage('Build') {
 //    trace.endStage(${env.WORKSPACE}, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
 // }
 }
+this
