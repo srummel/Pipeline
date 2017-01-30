@@ -1,6 +1,8 @@
+#!/usr/bin/env groovy
+
 def packageType = "Source Package"
 
-
+try{
 node('master') {
     checkout scm
  
@@ -45,3 +47,8 @@ node('master') {
 	build.trace = trace
 	build.execute()
   }
+  
+  }
+catch (exc) {
+    echo "Caught: ${exc}"
+	}
