@@ -2,13 +2,15 @@ def packageType
 
 def execute() 
 {
+def trace 
   stage('Build') {
 
-    def trace = load 'pipeline/pipelineTrace.groovy'
-	trace.location = WORKSPACE
-    trace.startStage("${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
-	 
-    try {
+//    def trace = load 'pipeline/pipelineTrace.groovy'
+//	trace.location = WORKSPACE
+//    trace.startStage("${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
+	 trace.startStage('BUILD')
+
+	 try {
 
       def nugent = load("pipeline/components/_nugent")
       nugent.executeMSBuild(packageType)
