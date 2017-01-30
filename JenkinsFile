@@ -17,7 +17,7 @@ try {
     trace.gitBranch = "${env.GIT_BRANCH}"
     trace.startStage('Pipeline')
 
-    // Load Appropriate Stages
+    // Execute Appropriate Stages
     executeBuild(trace, packageType)
     executeCoverage(trace)
     executeUpload(trace)
@@ -33,38 +33,38 @@ catch (exc) {
 }
 
 def executeBuild(trace, packageType) {
-  def build = load STAGES_DIR + "_MS_Build_Stage'
+  def build = load STAGES_DIR + "_MS_Build_Stage"
   build.packageType = packageType
   build.trace = trace
   build.execute()
 }
 
 def executeCoverage(trace) {
-    def coverage = load STAGES_DIR + "_MS_Coverage_Stage'
+    def coverage = load STAGES_DIR + "_MS_Coverage_Stage"
     coverage.trace = trace
     coverage.execute()
 }
 
 def executeUpload(trace) {
-    def upload = load STAGES_DIR + "_MS_ArtifactUpload_Stage'
+    def upload = load STAGES_DIR + "_MS_ArtifactUpload_Stage"
     upload.trace = trace
     upload.execute()
 }
 
 def executeCodeAnalysis(trace) {
-    def analysis = load STAGES_DIR + "_MS_Code_Analysis'
+    def analysis = load STAGES_DIR + "_MS_Code_Analysis"
     analysis.trace = trace
     analysis.execute()
 }
 
 def executeDeployToDev(trace) {
-    def deployToDev = load STAGES_DIR + "_MS_DeployToDev_Stage'
+    def deployToDev = load STAGES_DIR + "_MS_DeployToDev_Stage"
     deployToDev.trace = trace
     deployToDev.execute()
 }
 
 def executeDeployToTest(trace) {
-    def deployToTest = load STAGES_DIR + "_MS_DeployToTest_Stage'
+    def deployToTest = load STAGES_DIR + "_MS_DeployToTest_Stage"
     deployToTest.trace = trace
     deployToTest.execute()
 }
