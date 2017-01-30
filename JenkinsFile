@@ -1,7 +1,9 @@
+    def packageType = "Shawns Package"
+
+
   node('master') {
     checkout scm
 
-    def packageType = "Shawns Package"
 //	properties([packageType
 
     echo "######### packageType==" + packageType + " ###############"
