@@ -1,5 +1,8 @@
 
-def startStage(location, buildNumber, buildEnvironment, stage){
+def location
+
+
+def startStage(buildNumber, buildEnvironment, stage){
     echo "###### pipelineTrace.startStage::" + stage + "~~location=${location}::Start ######"
 
 	File f = new File(location + "/PAC.log")
