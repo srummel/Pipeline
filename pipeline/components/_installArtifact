@@ -1,6 +1,7 @@
 def installArtifact(){
-    echo "Internal_Method::nugent.installArtifact::Start **"
-	outputEnvironmentVars()
+     echo "Component::installArtifact.installArtifact::Start **"
+
+	 outputEnvironmentVars()
 
 //switch ("${Package_type}".toUpperCase()) {
 //   case "NUGET":
@@ -69,7 +70,7 @@ def installArtifact(){
 //      break
 //
 
-    echo "Internal_Method::nugent.installArtifact::Finish **"
+     echo "Component::installArtifact.installArtifact::Completed **"
 }
 
 def outputEnvironmentVars(){

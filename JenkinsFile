@@ -28,7 +28,10 @@ node('master') {
 	analysis.trace = trace
 	analysis.execute()
 	
-//    load 'pipeline/stages/_MS_ArtifactUpload_Stage'
+    def upload = load 'pipeline/stages/_MS_ArtifactUpload_Stage'
+	upload.trace = trace
+	upload.execute()
+	
 //    load 'pipeline/stages/_MS_DeployToDev_Stage'
 //    load 'pipeline/stages/_MS_DeployToTest_Stage'
 
