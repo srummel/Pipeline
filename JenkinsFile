@@ -32,9 +32,9 @@ node('master') {
 	upload.trace = trace
 	upload.execute()
 	
-    def upload = load 'pipeline/stages/_MS_DeployToDev_Stage'
-	upload.trace = trace
-	upload.execute()
+    def deploy = load 'pipeline/stages/_MS_DeployToDev_Stage'
+	deploy.trace = trace
+	deploy.execute()
 	
 
 
