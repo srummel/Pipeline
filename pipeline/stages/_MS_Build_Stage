@@ -1,6 +1,4 @@
 
-try{
-
 stage('Build') {
 def packageType = "DUMMMMY DATA"
 
@@ -23,7 +21,3 @@ def packageType = "DUMMMMY DATA"
   finally {
     trace.endStage(${env.WORKSPACE}, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
   }
-}
-
-}catch(exc){
-}
