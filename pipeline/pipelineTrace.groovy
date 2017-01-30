@@ -43,4 +43,4 @@ def logError(text){
     echo "** pipelineTrace.logError::" + stage + "::Finish **"
 }
 }
-// return this;
+ return this;
