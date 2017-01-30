@@ -2,9 +2,9 @@
     checkout scm
 
     def packageType = "Shawns Package"
+//	properties([packageType
 
-
-    echo "** packageType==${packageType} **"
+    echo "######### packageType==" + packageType + " ###############"
 
     // Load tracing definition file
     def trace = load 'pipeline/pipelineTrace.groovy'
