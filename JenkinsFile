@@ -12,6 +12,7 @@
 
     // Load Appropriate Stages
     def buid = load 'pipeline/stages/_MS_Build_Stage'
+	build.packageType = packageType
 //	build.packageType = '${packageType}'
 //   echo "** BUILD LOADED **"
 
