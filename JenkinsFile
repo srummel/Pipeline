@@ -14,7 +14,7 @@
 //    def buid = load 'pipeline/stages/_MS_Build_Stage'
 	stage('Build') {
 
-  def trace = load 'pipeline/pipelineTrace.groovy'
+//  def trace = load 'pipeline/pipelineTrace.groovy'
   trace.startStage(${env.WORKSPACE}, "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'BUILD')
   
 //  echo "** packageType==build **" 
