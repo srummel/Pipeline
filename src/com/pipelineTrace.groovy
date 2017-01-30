@@ -1,7 +1,6 @@
 package com
 
 
-@Library('pacLog')
 public class pipelineTrace implements Serializable{ 
 def location
 def startStage(buildNumber, buildEnvironment, stage){

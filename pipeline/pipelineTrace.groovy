@@ -1,9 +1,8 @@
-package com
 
 
-@Library('pacLog')
-class pipelineTrace{ 
+
 def location
+
 def startStage(buildNumber, buildEnvironment, stage){
     println "###### pipelineTrace.startStage::" + stage + "~~location=${location}::Start ######"
 
@@ -43,6 +42,6 @@ def logError(text){
 	
     println "** pipelineTrace.logError::" + stage + "::Finish **"
 }
-}
 
- return new pipelineTrace()
+
+ return this
