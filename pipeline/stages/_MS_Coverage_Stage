@@ -1,6 +1,6 @@
+def STAGE_NAME = 'Code Coverage'
 def packageType
 def trace
-def STAGE_NAME = 'Code Coverage'
 
 
 def execute() {
