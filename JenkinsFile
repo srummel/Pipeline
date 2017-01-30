@@ -11,7 +11,6 @@ node('master') {
 	trace.location = WORKSPACE
 	trace.buildNumber = "${env.BUILD_NUMBER}"
 	trace.gitBranch = "${env.GIT_BRANCH}"
-	trace.test()
     trace.startStage( 'Pipeline')
 
     // Load Appropriate Stages
