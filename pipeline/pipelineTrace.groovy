@@ -45,4 +45,4 @@ def logError(text){
 }
 }
 @NonCPS
- return new pipelineTrace()
+new pipelineTrace()
