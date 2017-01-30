@@ -13,7 +13,7 @@ node('master') {
     trace.startStage( "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Pipeline')
 
     // Load Appropriate Stages
-//    def build = load 'pipeline/stages/_MS_Build_Stage'
+    def build = load 'pipeline/stages/_MS_Build_Stage'
 	
 	build.packageType = packageType
 	
