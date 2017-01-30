@@ -30,3 +30,5 @@ def execute() {
     trace.endStage('Code Coverage')
   }
 }
+return this
+
