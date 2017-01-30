@@ -1,6 +1,7 @@
 
 
 
+@NonCPS
 class pipelineTrace{ 
 def location
 def startStage(buildNumber, buildEnvironment, stage){
