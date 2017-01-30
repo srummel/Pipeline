@@ -39,7 +39,11 @@ node('master') {
 	deployToTest.execute()
 
     trace.endStage('Pipeline')
-  }
+  }  
+}
+catch (exc) {
+    echo "Caught: ${exc}"
+}
 
   def executeBuild(packageType){
     def build = load 'pipeline/stages/_MS_Build_Stage'
@@ -47,8 +51,3 @@ node('master') {
 	build.trace = trace
 	build.execute()
   }
-  
-  }
-catch (exc) {
-    echo "Caught: ${exc}"
-	}
