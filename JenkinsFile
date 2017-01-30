@@ -14,7 +14,7 @@ node('master') {
     trace.startStage( 'Pipeline')
 
     // Load Appropriate Stages
-    executeBuild()
+    executeBuild(packageType)
 
     def coverage = load 'pipeline/stages/_MS_Coverage_Stage'
 	coverage.trace = trace
@@ -39,7 +39,7 @@ node('master') {
     trace.endStage('Pipeline')
   }
 
-  def executeBuild(){
+  def executeBuild(packageType){
     def build = load 'pipeline/stages/_MS_Build_Stage'
 	build.packageType = packageType
 	build.trace = trace
