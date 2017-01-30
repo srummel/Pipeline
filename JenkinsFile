@@ -1,6 +1,4 @@
-
-
-  node('master') {
+node('master') {
     checkout scm
 
     def packageType = "Shawns Package"
