@@ -22,7 +22,7 @@ node('master') {
 	
 	
    echo "** PRE - BUILD Executed **"
-//	build.execute()
+	build.execute()
    echo "** BUILD Executed **"
 
 //    load 'pipeline/stages/_MS_Coverage_Stage'
