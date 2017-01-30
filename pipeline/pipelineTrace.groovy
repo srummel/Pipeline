@@ -5,6 +5,9 @@ def location
 def buildNumber 
 def gitBranch
 
+def test(){
+    println "###### Well this works!!!! ######"
+}
 	
 def startStage(stage){
     println "###### pipelineTrace.startStage::" + stage + "~~location=${location}~~Build=${buildNumber}~~gitBranch= ${gitBranch}::Start ######"
