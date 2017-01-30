@@ -8,24 +8,24 @@ def pacLog
 
 	
 def startStage(stage){
-    println "###### Entering::pipelineTrace.startStage ######"
+    println "###### Entering::pipelineTrace.startStage::"+ stage + " ######"
 
 	pacLog = new File(location + "/PAC.log")
 	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
     pacLog.append([timeStamp, buildNumber, gitBranch].join("; ") + " ::Begin " + stage + '\r\n')
 	
-    println "###### Exiting::pipelineTrace.startStage ######"
+    println "###### Exiting::pipelineTrace.startStage::"+ stage + " ######"
 }
 
 
 def endStage(stage){
-    println "###### Entering::pipelineTrace.endStage ######"
+    println "###### Entering::pipelineTrace.endStage::"+ stage + " ######"
 
 	pacLog = new File(location + "/PAC.log")
 	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
     pacLog.append([timeStamp, buildNumber, gitBranch].join("; ") + " ::Complete " + stage + '\r\n')
 	
-    println "###### Exiting::pipelineTrace.endStage ######"
+    println "###### Exiting::pipelineTrace.endStage::"+ stage + " ######"
 }
 
 def output(text){
