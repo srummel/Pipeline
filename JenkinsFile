@@ -1,4 +1,6 @@
 
+
+
 node('master') {
     checkout scm
 
@@ -32,17 +34,13 @@ node('master') {
 	upload.trace = trace
 	upload.execute()
 	
-    def deploy = load 'pipeline/stages/_MS_DeployToDev_Stage'
-	deploy.trace = trace
-	deploy.execute()
+    def deployToDev = load 'pipeline/stages/_MS_DeployToDev_Stage'
+	deployToDev.trace = trace
+	deployToDev.execute()
 	
-
-
-
-
-
-
-//    load 'pipeline/stages/_MS_DeployToTest_Stage'
+    def deployToTest = load 'pipeline/stages/_MS_DeployToTest_Stage'
+	deployToTest.trace = trace
+	deployToTest.execute()
 
     trace.endStage('Pipeline')
   }

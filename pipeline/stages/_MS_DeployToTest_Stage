@@ -1,8 +1,13 @@
-stage('Deployment to TEST') {
-  def trace = load 'pipeline/pipelineTrace.groovy'
-  trace.startStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Deployment to TEST')
+def trace 
+
+def execute() 
+{
+  stage('Deployment to TEST') {
+    trace.startStage('Deployment to TEST')
 
 //        bat '"%powershell%" -ExecutionPolicy ByPass -File %artifact_promote%  -pac_type %NXS_PKG% -projectname %PROJECT_NAME% -WORKSPACE %WORKSPACE% -region "TEST" -UUID %UUID% -groupid %MVN_NGROUPID_TEST%'
 
-  trace.endStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Deployment to TEST')
+    trace.endStage('Deployment to TEST')
+  }
 }
+this
