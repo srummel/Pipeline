@@ -4,7 +4,7 @@
 def location
 def buildNumber 
 def gitBranch
-File pacLog = new File(location + "/PAC.log")
+def File pacLog = new File(location + "/PAC.log")
 
 def test(){
     println "###### Well this works!!!! ######"
