@@ -1,11 +1,9 @@
-
+def packageType = "Source Package"
 
 
 node('master') {
     checkout scm
-
-    def packageType = "Source Package"
-
+ 
     echo "######### packageType==" + packageType + " ###############"
 
     // Load tracing definition file
