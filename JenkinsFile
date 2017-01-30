@@ -20,8 +20,8 @@ node('master') {
 	build.trace = trace
 	build.execute()
 
-    def coverage = 'pipeline/stages/_MS_Coverage_Stage'
-//	coverage.trace = trace
+    def coverageStage = 'pipeline/stages/_MS_Coverage_Stage'
+	coverageStage.trace = trace
 //	coverage.execute()
 	
 //    load 'pipeline/stages/_MS_Install_Stage'
