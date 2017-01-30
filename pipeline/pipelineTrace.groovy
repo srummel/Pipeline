@@ -1,7 +1,7 @@
 
 
 
-@NonCPS
+
 class pipelineTrace{ 
 def location
 def startStage(buildNumber, buildEnvironment, stage){
@@ -44,4 +44,5 @@ def logError(text){
     println "** pipelineTrace.logError::" + stage + "::Finish **"
 }
 }
+@NonCPS
  return new pipelineTrace()
