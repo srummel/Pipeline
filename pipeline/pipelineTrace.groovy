@@ -7,7 +7,7 @@ def gitBranch
 
 	
 def startStage(stage){
-    println "###### pipelineTrace.startStage::" + stage + "~~location=${location}~~v=${buildNumber}~~gitBranch= ${gitBranch}::Start ######"
+    println "###### pipelineTrace.startStage::" + stage + "~~location=${location}~~Build=${buildNumber}~~gitBranch= ${gitBranch}::Start ######"
 
 File pacLog = new File(location + "/PAC.log")
 	def timeStamp = new Date().format('yyyy-MM-dd HH:mm:ss.SSS')
