@@ -22,8 +22,6 @@ def runCodeCoverage() {
 //    bat '"%powershell%" -ExecutionPolicy ByPass -File %copy_logs% -copy_file %SRC_REPORT_OC% -copy_path %LOG_FOLDER_CCR_OC%'
 
     echo "Internal_Method::codeCoverage.runCodeCoverage::Finish **"
-
-
 }
 
 return this

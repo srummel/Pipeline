@@ -1,29 +1,32 @@
-stage('Code Coverage') {
+def packageType
+def trace
+def STAGE_NAME = 'Code Coverage'
 
-  echo 'WORKSPACE = ${env.WORKSPACE}'
-	
-  def trace = load 'pipeline/pipelineTrace.groovy'
-  trace.startStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Code Coverage')
-  
-  try {
-    if ("${env.MS_TEST}" == "") {
-	
-      def message = "No test location identified in PAC.json"
-      echo $ { message }
-      trace.output("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", "${message}")
-	  
-    } else {
-	
-      def coverage = load("pipeline/components/_codeCoverage")
-      coverage.runCodeCoverage()
-    
-	}
-  } catch (err) {
-	def logs = load 'pipeline/logFile.groovy'
-    logs.copyLogFile('%LOG_FOLDER%', '%SRC_LOG%')
-    logs.copyLogFile('%LOG_FOLDER%', '%GIT_LOG%')
-    throw err
+
+def execute() {
+  stage(STAGE_NAME) {
+    trace.startStage(STAGE_NAME)
+
+    try {
+      if ("${env.MS_TEST}" == "") {
+
+        def message = "No test location identified in PAC.json"
+        echo $ { message }
+        trace.output("${message}")
+
+      } else {
+
+        def coverage = load("pipeline/components/_codeCoverage")
+        coverage.runCodeCoverage()
+
+      }
+    } catch (err) {
+      def logs = load 'pipeline/logFile.groovy'
+      logs.copyLogFile('%LOG_FOLDER%', '%SRC_LOG%')
+      logs.copyLogFile('%LOG_FOLDER%', '%GIT_LOG%')
+      throw err
+    }
+
+    trace.endStage(STAGE_NAME)
   }
-  
-  trace.endStage("${env.WORKSPACE}", "${env.BUILD_NUMBER}", "${env.GIT_BRANCH}", 'Code Coverage')
 }
