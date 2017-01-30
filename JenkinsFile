@@ -2,7 +2,7 @@
 node('master') {
     checkout scm
 
-    def packageType = "Shawns Package"
+    def packageType = "Source Package"
 
     echo "######### packageType==" + packageType + " ###############"
 
