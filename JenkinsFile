@@ -1,53 +1,54 @@
 #!/usr/bin/env groovy
 
 def packageType = "Source Package"
+def trace
 
-try{
-node('master') {
+try {
+  node('master') {
     checkout scm
- 
+
     echo "######### packageType==" + packageType + " ###############"
 
     // Load tracing definition file
-    def trace = load 'pipeline/pipelineTrace.groovy'
-	trace.location = WORKSPACE
-	trace.buildNumber = "${env.BUILD_NUMBER}"
-	trace.gitBranch = "${env.GIT_BRANCH}"
-    trace.startStage( 'Pipeline')
+    trace = load 'pipeline/pipelineTrace.groovy'
+    trace.location = WORKSPACE
+    trace.buildNumber = "${env.BUILD_NUMBER}"
+    trace.gitBranch = "${env.GIT_BRANCH}"
+    trace.startStage('Pipeline')
 
     // Load Appropriate Stages
     executeBuild(packageType)
 
     def coverage = load 'pipeline/stages/_MS_Coverage_Stage'
-	coverage.trace = trace
-	coverage.execute()
-	
+    coverage.trace = trace
+    coverage.execute()
+
     def analysis = load 'pipeline/stages/_MS_Code_Analysis'
-	analysis.trace = trace
-	analysis.execute()
-	
+    analysis.trace = trace
+    analysis.execute()
+
     def upload = load 'pipeline/stages/_MS_ArtifactUpload_Stage'
-	upload.trace = trace
-	upload.execute()
-	
+    upload.trace = trace
+    upload.execute()
+
     def deployToDev = load 'pipeline/stages/_MS_DeployToDev_Stage'
-	deployToDev.trace = trace
-	deployToDev.execute()
-	
+    deployToDev.trace = trace
+    deployToDev.execute()
+
     def deployToTest = load 'pipeline/stages/_MS_DeployToTest_Stage'
-	deployToTest.trace = trace
-	deployToTest.execute()
+    deployToTest.trace = trace
+    deployToTest.execute()
 
     trace.endStage('Pipeline')
-  }  
+  }
 }
 catch (exc) {
-    echo "Caught: ${exc}"
+  echo "Caught: ${exc}"
 }
 
-  def executeBuild(packageType){
-    def build = load 'pipeline/stages/_MS_Build_Stage'
-	build.packageType = packageType
-	build.trace = trace
-	build.execute()
-  }
+def executeBuild(packageType) {
+  def build = load 'pipeline/stages/_MS_Build_Stage'
+  build.packageType = packageType
+  build.trace = trace
+  build.execute()
+}
