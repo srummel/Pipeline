@@ -41,7 +41,7 @@ try {
 //    deployToTest.trace = trace
 //    deployToTest.execute()
 
-    trace.endStage('Pipeline')
+ //   trace.endStage('Pipeline')
   }
 }
 catch (exc) {
