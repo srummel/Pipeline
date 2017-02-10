@@ -8,6 +8,11 @@ try {
   node('master') {
     checkout scm
 
+
+    def pipeline = load 'Pipeline.groovy'
+    pipeline.runBuild()
+
+
      // Load tracing definition file
 //    trace = load 'pipeline/pipelineTrace.groovy'
 //    trace.location = WORKSPACE
@@ -16,10 +21,10 @@ try {
 //    trace.startStage('Pipeline')
 
     // Execute Appropriate Stages
-    def build = load STAGES_DIR + "_MS_Build_Stage"
-    build.packageType = packageType
-    build.trace = trace
-    build.execute()
+//    def build = load STAGES_DIR + "_MS_Build_Stage"
+//    build.packageType = packageType
+//    build.trace = trace
+//    build.execute()
   
 //    def coverage = load STAGES_DIR + "_MS_Coverage_Stage"
 //    coverage.trace = trace
