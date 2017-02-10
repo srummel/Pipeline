@@ -1,10 +1,11 @@
 #!/usr/bin/env groovy
 
-import groovy.json.JsonSlurper
 
 node {
   checkout scm
-  this.class.classLoader.parseClass("Pipeline.groovy").newInstance(this).runBuild()
+  Pipeline pipeline = this.class.classLoader.parseClass("Pipeline.groovy").newInstance(this)
+  pipeline.script = this
+  pipeline.runBuild()
 
   println "done"
 }

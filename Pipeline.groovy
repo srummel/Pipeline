@@ -4,7 +4,12 @@ public class Pipeline {
 
   def script
 
-  Pipeline(def script) {
+  Pipeline() {
+
+  }
+
+
+  public Pipeline(def script) {
     this.script = script
   }
 
