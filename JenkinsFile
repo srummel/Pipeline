@@ -1,10 +1,10 @@
-#!/usr/bin/env groovy
+//  #!/usr/bin/env groovy
 
 def packageType = "Source Package"
 def STAGES_DIR = "pipeline/stages/"
 def trace
 
-try {
+// try {
   node('master') {
     checkout scm
 
@@ -12,7 +12,7 @@ try {
     def pipeline = load 'Pipeline.groovy'
     pipeline.runBuild()
 
-
+  }
      // Load tracing definition file
 //    trace = load 'pipeline/pipelineTrace.groovy'
 //    trace.location = WORKSPACE
@@ -47,8 +47,8 @@ try {
 //    deployToTest.execute()
 
  //   trace.endStage('Pipeline')
-  }
-}
-catch (exc) {
-  echo "Caught: ${exc}"
-}
+//  }
+//}
+//catch (exc) {
+//  echo "Caught: ${exc}"
+//}
