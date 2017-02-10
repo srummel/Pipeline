@@ -1,9 +1,8 @@
 
 
-public class Pipeline {
+class Pipeline {
 
   def script
-  String message;
 
   Pipeline(def script) {
     this.script = script

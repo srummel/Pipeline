@@ -1,13 +1,12 @@
-//  #!/usr/bin/env groovy
+#!/usr/bin/env groovy
 
-def packageType = "Source Package"
-def STAGES_DIR = "pipeline/stages/"
-def trace
+//def packageType = "Source Package"
+//def STAGES_DIR = "pipeline/stages/"
+//def trace
 
 // try {
   node('master') {
     checkout scm
-
 
     def pipeline = load 'Pipeline.groovy'
     pipeline.runBuild()
