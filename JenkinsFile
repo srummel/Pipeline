@@ -1,5 +1,12 @@
 #!/usr/bin/env groovy
 
+import groovy.json.JsonSlurper
+
+node {
+  def jsonParser = new JsonSlurper()
+  println "done"
+}
+
 import com.sm.Pipeline
 
 //def packageType = "Source Package"
@@ -9,20 +16,20 @@ import com.sm.Pipeline
 // def pipeline
 
 // try {
-node('master') {
-  checkout scm
+//node('master') {
+//  checkout scm
 
 //    def pipeline = load 'Pipeline.groovy'
 //  Pipeline pipeline = new Pipeline()
 //    pipeline.script = this
 //    pipeline.runBuild()
 
-  stage "Init"
-  def pipeline = new com.sm.Pipeline(this)
-  pipeline.runBuild()
-
-
-}
+//  stage "Init"
+//  def pipeline = new com.sm.Pipeline(this)
+//  pipeline.runBuild()
+//
+//
+//}
 // Load tracing definition file
 //    trace = load 'pipeline/pipelineTrace.groovy'
 //    trace.location = WORKSPACE
