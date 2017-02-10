@@ -1,6 +1,6 @@
 
 
-class Pipeline {
+public class Pipeline {
 
   def script
 
