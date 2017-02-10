@@ -1,6 +1,6 @@
 
 
-public class Pipeline {
+public class Pipeline implements Serializable{
 
   def script
 
