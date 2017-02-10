@@ -9,11 +9,11 @@ try {
     checkout scm
 
      // Load tracing definition file
-    trace = load 'pipeline/pipelineTrace.groovy'
-    trace.location = WORKSPACE
-    trace.buildNumber = "${env.BUILD_NUMBER}"
-    trace.gitBranch = "${env.GIT_BRANCH}"
-    trace.startStage('Pipeline')
+//    trace = load 'pipeline/pipelineTrace.groovy'
+//    trace.location = WORKSPACE
+//    trace.buildNumber = "${env.BUILD_NUMBER}"
+//    trace.gitBranch = "${env.GIT_BRANCH}"
+//    trace.startStage('Pipeline')
 
     // Execute Appropriate Stages
     def build = load STAGES_DIR + "_MS_Build_Stage"
@@ -21,25 +21,25 @@ try {
     build.trace = trace
     build.execute()
   
-    def coverage = load STAGES_DIR + "_MS_Coverage_Stage"
-    coverage.trace = trace
-    coverage.execute()
-
-    def upload = load STAGES_DIR + "_MS_ArtifactUpload_Stage"
-    upload.trace = trace
-    upload.execute()
-
-    def analysis = load STAGES_DIR + "_MS_Code_Analysis"
-    analysis.trace = trace
-    analysis.execute()
-
-    def deployToDev = load STAGES_DIR + "_MS_DeployToDev_Stage"
-    deployToDev.trace = trace
-    deployToDev.execute()
-
-    def deployToTest = load STAGES_DIR + "_MS_DeployToTest_Stage"
-    deployToTest.trace = trace
-    deployToTest.execute()
+//    def coverage = load STAGES_DIR + "_MS_Coverage_Stage"
+//    coverage.trace = trace
+//    coverage.execute()
+//
+//    def upload = load STAGES_DIR + "_MS_ArtifactUpload_Stage"
+//    upload.trace = trace
+//    upload.execute()
+//
+//    def analysis = load STAGES_DIR + "_MS_Code_Analysis"
+//    analysis.trace = trace
+//    analysis.execute()
+//
+//    def deployToDev = load STAGES_DIR + "_MS_DeployToDev_Stage"
+//    deployToDev.trace = trace
+//    deployToDev.execute()
+//
+//    def deployToTest = load STAGES_DIR + "_MS_DeployToTest_Stage"
+//    deployToTest.trace = trace
+//    deployToTest.execute()
 
     trace.endStage('Pipeline')
   }
