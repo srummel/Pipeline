@@ -4,8 +4,8 @@
 node {
   checkout scm
   def pipeline = this.class.classLoader.parseClass("Pipeline.groovy")
-  pipeline.script = this
-  pipeline.runBuild()
+//  pipeline.script = this
+//  pipeline.runBuild()
 
   println "done"
 }
