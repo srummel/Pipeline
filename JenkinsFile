@@ -3,7 +3,7 @@
 
 node {
   checkout scm
-  com.sm.Pipeline pipeline = this.class.classLoader.parseClass("Pipeline.groovy").newInstance(this)
+  def pipeline = this.class.classLoader.parseClass("Pipeline.groovy").newInstance(this)
   pipeline.script = this
   pipeline.runBuild()
 
