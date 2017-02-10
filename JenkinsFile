@@ -1,13 +1,11 @@
 #!/usr/bin/env groovy
 
 import groovy.json.JsonSlurper
-import groovyx.gpars.dataflow.operator.Pipeline
 
 node {
   checkout scm
-  this.class.classLoader.parseClass("Pipeline.groovy")
-  Pipeline.newInstance(this).runBuild()
-  
+  this.class.classLoader.parseClass("Pipeline.groovy").newInstance(this).runBuild()
+
   println "done"
 }
 
