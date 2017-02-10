@@ -1,16 +1,24 @@
 
 
-public class Pipeline implements Serializable{
+//public class Pipeline implements Serializable{
 
-  def script
+//  def script
+//
+//  Pipeline(def script) {
+//    this.script = script
+//  }
+//
+//  def runBuild(){
+//    script.echo script.currentBuild.toString()
+//  }
+{ ->
 
-  Pipeline(def script) {
-    this.script = script
+  stage('Build'){
+    echo 'TEST'
   }
 
-  def runBuild(){
-    script.echo script.currentBuild.toString()
-  }
 
 }
-return new Pipeline()
+return this
+
+//return new Pipeline()

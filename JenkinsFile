@@ -1,32 +1,39 @@
-//#!/usr/bin/env groovy
+#!/usr/bin/env groovy
 
 //def packageType = "Source Package"
 //def STAGES_DIR = "pipeline/stages/"
 //def trace
 
+// def pipeline
+
 // try {
-  node('master') {
-    checkout scm
+node('master') {
+  checkout scm
 
 //    def pipeline = load 'Pipeline.groovy'
-Pipeline pipeline = new Pipeline()
-    pipeline.script = this
-    pipeline.runBuild()
+//  Pipeline pipeline = new Pipeline()
+//    pipeline.script = this
+//    pipeline.runBuild()
 
-  }
-     // Load tracing definition file
+  stage "Init"
+  def pipeline = new com.sm.Pipeline(this)
+  pipeline.runBuild()
+
+
+}
+// Load tracing definition file
 //    trace = load 'pipeline/pipelineTrace.groovy'
 //    trace.location = WORKSPACE
 //    trace.buildNumber = "${env.BUILD_NUMBER}"
 //    trace.gitBranch = "${env.GIT_BRANCH}"
 //    trace.startStage('Pipeline')
 
-    // Execute Appropriate Stages
+// Execute Appropriate Stages
 //    def build = load STAGES_DIR + "_MS_Build_Stage"
 //    build.packageType = packageType
 //    build.trace = trace
 //    build.execute()
-  
+
 //    def coverage = load STAGES_DIR + "_MS_Coverage_Stage"
 //    coverage.trace = trace
 //    coverage.execute()
@@ -47,7 +54,7 @@ Pipeline pipeline = new Pipeline()
 //    deployToTest.trace = trace
 //    deployToTest.execute()
 
- //   trace.endStage('Pipeline')
+//   trace.endStage('Pipeline')
 //  }
 //}
 //catch (exc) {
