@@ -1,3 +1,5 @@
+
+
 public class Pipeline {
 
   def script
@@ -12,3 +14,4 @@ public class Pipeline {
   }
 
 }
+return new Pipeline()
