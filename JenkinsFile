@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 
+import com.sm
+
 //def packageType = "Source Package"
 //def STAGES_DIR = "pipeline/stages/"
 //def trace
