@@ -8,7 +8,8 @@
   node('master') {
     checkout scm
 
-    def pipeline = load 'Pipeline.groovy'
+//    def pipeline = load 'Pipeline.groovy'
+Pipeline pipeline = new Pipeline()
     pipeline.script = this
     pipeline.runBuild()
 
