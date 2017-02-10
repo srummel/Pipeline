@@ -2,7 +2,7 @@ package com.sm
 
 import java.*
 
-class Pipeline implements Serializable{
+class Pipeline  {
 
   def script
 
