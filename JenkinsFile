@@ -7,7 +7,7 @@ node('master') {
   def pipeline = new Pipeline(this);
 
   stage('Build'){
-    pipeline.outputEnvironmentVariables()
+//    pipeline.outputEnvironmentVariables()
 
     pipeline.output(" THIS IS A KINDA BIG DEAL!!!!  ")
 
