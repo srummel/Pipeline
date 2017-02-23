@@ -8,6 +8,9 @@ node('master') {
 
   stage('Build'){
     pipeline.outputEnvironmentVariables()
+
+    pipeline.output(" THIS IS A KINDA BIG DEAL!!!!  ")
+
   }
 
   println "done"
