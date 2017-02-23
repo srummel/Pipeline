@@ -1,16 +1,19 @@
 #!/usr/bin/env groovy
 
+@Library('Groovy_Global')
+import com.servicemaster.devops.Pipeline
 
-node {
-  checkout scm
-  def pipeline = this.class.classLoader.parseClass("Pipeline.groovy")
-//  pipeline.script = this
-//  pipeline.runBuild()
+node('master') {
+  def pipeline = new Pipeline();
+
+  stage('Build'){
+    pipeline.outputEnvironmentVariables()
+  }
 
   println "done"
 }
 
-// import com.sm.Pipeline
+// import com.sm.Pipeline_Old
 
 //def packageType = "Source Package"
 //def STAGES_DIR = "pipeline/stages/"
@@ -22,13 +25,13 @@ node {
 //node('master') {
 //  checkout scm
 
-//    def pipeline = load 'Pipeline.groovy'
-//  Pipeline pipeline = new Pipeline()
+//    def pipeline = load 'Pipeline_Old.groovy'
+//  Pipeline_Old pipeline = new Pipeline_Old()
 //    pipeline.script = this
 //    pipeline.runBuild()
 
 //  stage "Init"
-//  def pipeline = new com.sm.Pipeline(this)
+//  def pipeline = new com.sm.Pipeline_Old(this)
 //  pipeline.runBuild()
 //
 //
@@ -38,7 +41,7 @@ node {
 //    trace.location = WORKSPACE
 //    trace.buildNumber = "${env.BUILD_NUMBER}"
 //    trace.gitBranch = "${env.GIT_BRANCH}"
-//    trace.startStage('Pipeline')
+//    trace.startStage('Pipeline_Old')
 
 // Execute Appropriate Stages
 //    def build = load STAGES_DIR + "_MS_Build_Stage"
@@ -66,7 +69,7 @@ node {
 //    deployToTest.trace = trace
 //    deployToTest.execute()
 
-//   trace.endStage('Pipeline')
+//   trace.endStage('Pipeline_Old')
 //  }
 //}
 //catch (exc) {

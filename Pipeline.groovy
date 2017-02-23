@@ -1,31 +1,16 @@
 
 
-public class Pipeline {
-
-  def script
+class Pipeline {
 
   Pipeline() {
-
-  }
-
-
-  public Pipeline(def script) {
-    this.script = script
   }
 
   def runBuild() {
-    script.echo script.currentBuild.toString()
+     println 'Build'
+     // call a powershell script
+
+     x = x * 2
   }
+
+
 }
-
-//{ ->
-//
-//  stage('Build'){
-//    echo 'TEST'
-//  }
-//
-//
-//}
-//return this
-
-//return new Pipeline()
