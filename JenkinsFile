@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-// @Library('Groovy_Global')
+ @Library('Groovy_Global')
 import com.servicemaster.devops.Pipeline
 
 node('master') {
