@@ -4,7 +4,7 @@
 import com.servicemaster.devops.Pipeline
 
 node('master') {
-  def pipeline = new Pipeline();
+  def pipeline = new Pipeline(this);
 
   stage('Build'){
     pipeline.outputEnvironmentVariables()
