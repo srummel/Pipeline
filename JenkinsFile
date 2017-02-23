@@ -9,7 +9,7 @@ node('master') {
   stage('Build'){
 //    pipeline.outputEnvironmentVariables()
 
-    pipeline.output()
+    pipeline.build()
 
   }
 
