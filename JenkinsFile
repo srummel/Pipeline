@@ -1,16 +1,15 @@
 #!/usr/bin/env groovy
 
- @Library('Groovy_Global')
-import com.servicemaster.devops.Pipeline
+@Library('Groovy_Global')
+// import com.servicemaster.devops.Pipeline
+import org.foo.Zot
 
 node('master') {
-  def pipeline = new Pipeline(this);
+//  def pipeline = new Pipeline(this);
 
   stage('Build'){
-//    pipeline.outputEnvironmentVariables()
-
-    pipeline.build()
-
+    def z = new org.foo.Zot()
+    z.checkOutFrom('test')
   }
 
   println "done"
