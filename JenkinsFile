@@ -8,9 +8,10 @@ import org.foo.Zot
 //  def pipeline = new Pipeline(this);
 
 //  stage('Build'){
+  node(){
     def z = new org.foo.Zot()
     z.checkOutFrom('test')
-//  }
+  }
 
 //  println "done"
 //}
