@@ -4,16 +4,16 @@
 // import com.servicemaster.devops.Pipeline
 import org.foo.Zot
 
-node('master') {
+//node('master') {
 //  def pipeline = new Pipeline(this);
 
-  stage('Build'){
+//  stage('Build'){
     def z = new org.foo.Zot()
     z.checkOutFrom('test')
-  }
+//  }
 
-  println "done"
-}
+//  println "done"
+//}
 
 // import com.sm.Pipeline_Old
 
